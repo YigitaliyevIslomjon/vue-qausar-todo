@@ -33,7 +33,6 @@ const handleSubmit = async () => {
         loading.value = true
         await fetchDeleteUser(props.rowData?.id)
         showNotify()
-				console.log({...route.query})
 				userStore.actionUsersList({_page: route.query.page, _limit: route.query.page_size})
         isOpen.value = false
     }

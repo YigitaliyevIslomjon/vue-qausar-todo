@@ -35,8 +35,8 @@ watch(
       filled
       v-model="form.username"
       label="username *"
-      :error="v$.age?.$error"
-      :error-message="v$.age?.$errors[0]?.$message"
+      :error="v$.username?.$error"
+      :error-message="v$.username?.$errors[0]?.$message"
     />
   </q-form>
 </template>
