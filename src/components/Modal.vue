@@ -4,6 +4,7 @@ import { ref, onMounted } from 'vue'
 import { required } from '@vuelidate/validators'
 import useVuelidate from '@vuelidate/core'
 import { useQuasar } from 'quasar'
+import { useRoute } from 'vue-router'
 // components
 import Form from './Form.vue'
 // services
@@ -14,7 +15,7 @@ import { useUsersStore } from '@/store/user.store'
 // composibles
 const userStore = useUsersStore()
 const $q = useQuasar()
-
+const route = useRoute()
 // props
 const props = defineProps({
   rowData: {
@@ -61,7 +62,7 @@ const handleSubmit = async () => {
       await fetchUpdateUser(props.rowData?.id,formData.value)
     }
     showNotify()
-    userStore.actionUsersList()
+    userStore.actionUsersList({_page: route.query.page, _limit: route.query.page_size})
     isOpen.value = false
     formData.value = {
       name: null,

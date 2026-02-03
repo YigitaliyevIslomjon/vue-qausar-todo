@@ -2,6 +2,7 @@
 // core
 import { ref } from 'vue';
 import { useQuasar } from 'quasar';
+import { useRoute } from 'vue-router';
 // services
 import { fetchDeleteUser } from '@/services/users.service';
 // store
@@ -10,7 +11,7 @@ import { useUsersStore } from '@/store/user.store'
 // composibles
 const userStore = useUsersStore()
 const $q = useQuasar()
-
+const route = useRoute()
 // props
 const props = defineProps({
 	rowData : {
@@ -32,7 +33,8 @@ const handleSubmit = async () => {
         loading.value = true
         await fetchDeleteUser(props.rowData?.id)
         showNotify()
-        userStore.actionUsersList()
+				console.log({...route.query})
+				userStore.actionUsersList({_page: route.query.page, _limit: route.query.page_size})
         isOpen.value = false
     }
     catch(e){

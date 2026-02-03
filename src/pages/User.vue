@@ -35,6 +35,7 @@ const editRow = (row) => {
 
 const deleteRow = (row) => {
   isDeleteModalVisible.value = true
+  rowData.value= row
 }
 
 </script>
@@ -56,8 +57,8 @@ const deleteRow = (row) => {
     </div>
   </div>
 
-  <modal v-if="isModalVisible" v-model="isModalVisible" :rowData="rowData" :title="rowData ? 'edit User' : 'add User'" />
-  <delete-modal v-model="isDeleteModalVisible" />
+  <modal v-if="isModalVisible" v-model="isModalVisible" :row-data="rowData" :title="rowData ? 'edit User' : 'add User'" />
+  <delete-modal v-model="isDeleteModalVisible" :row-data="rowData" />
 
 </template>
   
