@@ -44,9 +44,8 @@ const formRules = {
 const v$ = useVuelidate(formRules, formData)
 
 // methods
-
 const showNotify = () => {
-  $q.notify({message: "message"})
+  $q.notify({message: "successfully"})
 }
 
 const handleSubmit = async () => {

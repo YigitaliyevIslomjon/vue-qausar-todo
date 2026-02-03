@@ -1,6 +1,7 @@
 <script setup>
 // core
 import { ref } from 'vue';
+import { useQuasar } from 'quasar';
 // services
 import { fetchDeleteUser } from '@/services/users.service';
 // store
@@ -8,22 +9,29 @@ import { useUsersStore } from '@/store/user.store'
 
 // composibles
 const userStore = useUsersStore()
+const $q = useQuasar()
 
 // props
 const props = defineProps({
-    rowData : {
-        type: Object
-    }
+	rowData : {
+			type: Object
+	}
 })
 // reactive
 const loading = ref(false)
 // 
 const isOpen = defineModel({ default: false })
 
+// methods
+const showNotify = () => {
+  $q.notify({message: "successfully"})
+}
+
 const handleSubmit = async () => {
     try {
         loading.value = true
         await fetchDeleteUser(props.rowData?.id)
+        showNotify()
         userStore.actionUsersList()
         isOpen.value = false
     }

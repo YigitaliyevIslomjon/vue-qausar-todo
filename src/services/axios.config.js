@@ -28,11 +28,11 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
 	(response) => {
 		if (response.status === 200 || response.status === 201 || response.status === 204) {
-            return response
+        return response
 		}
-        else {
-                throw new Error(response.status.toString())
-            }
+		else {
+				throw new Error(response.status.toString())
+		}
 	}
 
 )
