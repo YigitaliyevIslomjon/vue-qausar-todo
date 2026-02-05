@@ -11,7 +11,7 @@ export const fetchCreateUser = body => {
 
 //  get user list
 export const fetchGetUserList = params => {
-  return axiosConfig.get(URLS.user, params )
+  return axiosConfig.create(URLS.user, params )
 }
 
 // delete user 
