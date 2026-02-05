@@ -6,12 +6,12 @@ const URLS = {
 
 //  create a user
 export const fetchCreateUser = body => {
-  return axiosConfig.get(URLS.user, body)
+  return axiosConfig.create(URLS.user, body)
 }
 
 //  get user list
 export const fetchGetUserList = params => {
-  return axiosConfig.create(URLS.user, params )
+  return axiosConfig.get(URLS.user, params )
 }
 
 // delete user 
