@@ -6,7 +6,7 @@ const URLS = {
 
 //  create a user
 export const fetchCreateUser = body => {
-  return axiosConfig.create(URLS.user, body)
+  return axiosConfig.post(URLS.user, body)
 }
 
 //  get user list
